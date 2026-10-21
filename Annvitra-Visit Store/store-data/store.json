@@ -1,0 +1,382 @@
+{
+  "products": [
+    {
+      "id": "481206",
+      "name": "Saffron Feast Box",
+      "kitchen": "The Royal Table",
+      "type": "Banquet surplus",
+      "price": 149,
+      "originalPrice": 349,
+      "available": true,
+      "image": "https://images.unsplash.com/photo-1601050690597-df0568f70950?auto=format&fit=crop&w=900&q=85",
+      "badge": "Best value",
+      "updatedAt": "2026-10-17T10:10:39.342Z"
+    },
+    {
+      "id": "728194",
+      "name": "Smoky Paneer Bowl",
+      "kitchen": "Tandoor Junction",
+      "type": "Fresh today",
+      "price": 109,
+      "originalPrice": 239,
+      "available": true,
+      "image": "https://images.unsplash.com/photo-1567188040759-fb8a883dc6d8?auto=format&fit=crop&w=900&q=85",
+      "badge": "Chef pick",
+      "updatedAt": "2026-10-17T10:03:49.790Z"
+    },
+    {
+      "id": "593017",
+      "name": "Garden Pasta Meal",
+      "kitchen": "Basil & Bloom",
+      "type": "Cloud kitchen",
+      "price": 129,
+      "originalPrice": 279,
+      "available": true,
+      "image": "https://images.unsplash.com/photo-1621996346565-e3dbc646d9a9?auto=format&fit=crop&w=900&q=85",
+      "badge": "Fresh batch",
+      "updatedAt": "2026-10-17T10:03:50.414Z"
+    },
+    {
+      "id": "864321",
+      "name": "Street-Style Thali",
+      "kitchen": "Chowk Express",
+      "type": "Vetted local vendor",
+      "price": 99,
+      "originalPrice": 199,
+      "available": true,
+      "image": "https://images.unsplash.com/photo-1585937421612-70a008356fbe?auto=format&fit=crop&w=900&q=85",
+      "badge": "Local favourite",
+      "updatedAt": "2026-10-17T05:08:12.492Z"
+    }
+  ],
+  "orders": [
+    {
+      "id": "ANV-6326517",
+      "placedAt": "2026-10-21T07:05:26.557Z",
+      "customer": {
+        "name": "vinayak sinha",
+        "phone": "+91 9998135934",
+        "address": "Jado babu chowk, hazaribag jharkhand"
+      },
+      "paymentMethod": "UPI",
+      "items": [
+        {
+          "id": "593017",
+          "name": "Garden Pasta Meal",
+          "price": 129,
+          "quantity": 3
+        }
+      ],
+      "total": 387,
+      "status": "WhatsApp order initiated"
+    },
+    {
+      "id": "ANV-2624726",
+      "placedAt": "2026-10-17T10:23:44.726Z",
+      "customer": {
+        "name": "Vinayak Sinha",
+        "phone": "+916205569006",
+        "address": "Hazaribag (Nagar Parishad)"
+      },
+      "paymentMethod": "Cash on Delivery",
+      "items": [
+        {
+          "id": "481206",
+          "name": "Saffron Feast Box",
+          "price": 149,
+          "quantity": 3
+        },
+        {
+          "id": "593017",
+          "name": "Garden Pasta Meal",
+          "price": 129,
+          "quantity": 2
+        }
+      ],
+      "total": 705,
+      "status": "WhatsApp order initiated"
+    },
+    {
+      "id": "ANV-2252309",
+      "placedAt": "2026-10-17T10:17:32.309Z",
+      "customer": {
+        "name": "apk",
+        "phone": "wsrff",
+        "address": "rfwsf"
+      },
+      "paymentMethod": "UPI",
+      "items": [
+        {
+          "id": "728194",
+          "name": "Smoky Paneer Bowl",
+          "price": 109,
+          "quantity": 1
+        },
+        {
+          "id": "864321",
+          "name": "Street-Style Thali",
+          "price": 99,
+          "quantity": 1
+        },
+        {
+          "id": "593017",
+          "name": "Garden Pasta Meal",
+          "price": 129,
+          "quantity": 1
+        }
+      ],
+      "total": 337,
+      "status": "WhatsApp order initiated"
+    },
+    {
+      "id": "ANV-2220939",
+      "placedAt": "2026-10-17T10:17:00.939Z",
+      "customer": {
+        "name": "apk",
+        "phone": "123456778",
+        "address": "sfgth"
+      },
+      "paymentMethod": "Cash on Delivery",
+      "items": [
+        {
+          "id": "481206",
+          "name": "Saffron Feast Box",
+          "price": 149,
+          "quantity": 1
+        },
+        {
+          "id": "728194",
+          "name": "Smoky Paneer Bowl",
+          "price": 109,
+          "quantity": 1
+        },
+        {
+          "id": "593017",
+          "name": "Garden Pasta Meal",
+          "price": 129,
+          "quantity": 1
+        }
+      ],
+      "total": 387,
+      "status": "WhatsApp order initiated"
+    },
+    {
+      "id": "ANV-1493067",
+      "placedAt": "2026-10-17T10:04:53.067Z",
+      "customer": {
+        "name": "vinayak sinha",
+        "phone": "+916205569006",
+        "address": "Jado babu chowk, hazaribag jharkhand"
+      },
+      "paymentMethod": "UPI",
+      "items": [
+        {
+          "id": "481206",
+          "name": "Saffron Feast Box",
+          "price": 149,
+          "quantity": 1
+        }
+      ],
+      "total": 149,
+      "status": "WhatsApp order initiated"
+    },
+    {
+      "id": "ANV-9460717",
+      "placedAt": "2026-10-17T09:31:00.717Z",
+      "customer": {
+        "name": "vinayak sinha",
+        "phone": "+916205569006",
+        "address": "Jado babu chowk, hazaribag jharkhand"
+      },
+      "paymentMethod": "UPI",
+      "items": [
+        {
+          "id": "481206",
+          "name": "Saffron Feast Box",
+          "price": 149,
+          "quantity": 1
+        },
+        {
+          "id": "728194",
+          "name": "Smoky Paneer Bowl",
+          "price": 109,
+          "quantity": 1
+        },
+        {
+          "id": "593017",
+          "name": "Garden Pasta Meal",
+          "price": 129,
+          "quantity": 1
+        },
+        {
+          "id": "864321",
+          "name": "Street-Style Thali",
+          "price": 99,
+          "quantity": 1
+        }
+      ],
+      "total": 486,
+      "status": "WhatsApp order initiated"
+    },
+    {
+      "id": "ANV-8464357",
+      "placedAt": "2026-10-17T09:14:24.357Z",
+      "customer": {
+        "name": "Preet Mistry",
+        "phone": "+916205569006",
+        "address": "Jado babu chowk, hazaribag jharkhand"
+      },
+      "paymentMethod": "Cash on Delivery",
+      "items": [
+        {
+          "id": "481206",
+          "name": "Saffron Feast Box",
+          "price": 149,
+          "quantity": 1
+        },
+        {
+          "id": "728194",
+          "name": "Smoky Paneer Bowl",
+          "price": 109,
+          "quantity": 1
+        },
+        {
+          "id": "593017",
+          "name": "Garden Pasta Meal",
+          "price": 129,
+          "quantity": 1
+        },
+        {
+          "id": "864321",
+          "name": "Street-Style Thali",
+          "price": 99,
+          "quantity": 1
+        }
+      ],
+      "total": 486,
+      "status": "WhatsApp order initiated"
+    },
+    {
+      "id": "ANV-4006650",
+      "placedAt": "2026-10-17T05:13:26.650Z",
+      "customer": {
+        "name": "vinayak sinha",
+        "phone": "+919998135934",
+        "address": "Jado babu chowk, hazaribag jharkhand"
+      },
+      "paymentMethod": "UPI",
+      "items": [
+        {
+          "id": "728194",
+          "name": "Smoky Paneer Bowl",
+          "price": 109,
+          "quantity": 1
+        },
+        {
+          "id": "593017",
+          "name": "Garden Pasta Meal",
+          "price": 129,
+          "quantity": 1
+        },
+        {
+          "id": "864321",
+          "name": "Street-Style Thali",
+          "price": 99,
+          "quantity": 1
+        }
+      ],
+      "total": 337,
+      "status": "WhatsApp order initiated"
+    },
+    {
+      "id": "ANV-3775807",
+      "placedAt": "2026-10-17T05:09:35.807Z",
+      "customer": {
+        "name": "Preet Mistry",
+        "phone": "+919998135934",
+        "address": "Jado babu chowk, hazaribag jharkhand"
+      },
+      "paymentMethod": "UPI",
+      "items": [
+        {
+          "id": "728194",
+          "name": "Smoky Paneer Bowl",
+          "price": 109,
+          "quantity": 1
+        },
+        {
+          "id": "481206",
+          "name": "Saffron Feast Box",
+          "price": 149,
+          "quantity": 2
+        },
+        {
+          "id": "593017",
+          "name": "Garden Pasta Meal",
+          "price": 129,
+          "quantity": 2
+        }
+      ],
+      "total": 665,
+      "status": "WhatsApp order initiated"
+    },
+    {
+      "id": "ANV-3749167",
+      "placedAt": "2026-10-17T05:09:09.167Z",
+      "customer": {
+        "name": "Preet Mistry",
+        "phone": "+919998135934",
+        "address": "Jado babu chowk, hazaribag jharkhand"
+      },
+      "paymentMethod": "UPI",
+      "items": [
+        {
+          "id": "481206",
+          "name": "Saffron Feast Box",
+          "price": 149,
+          "quantity": 6
+        }
+      ],
+      "total": 894,
+      "status": "WhatsApp order initiated"
+    },
+    {
+      "id": "ANV-3723137",
+      "placedAt": "2026-10-17T05:08:43.137Z",
+      "customer": {
+        "name": "Preet Mistry",
+        "phone": "+919998135934",
+        "address": "Jado babu chowk, hazaribag jharkhand"
+      },
+      "paymentMethod": "UPI",
+      "items": [
+        {
+          "id": "728194",
+          "name": "Smoky Paneer Bowl",
+          "price": 109,
+          "quantity": 1
+        },
+        {
+          "id": "593017",
+          "name": "Garden Pasta Meal",
+          "price": 129,
+          "quantity": 1
+        },
+        {
+          "id": "864321",
+          "name": "Street-Style Thali",
+          "price": 99,
+          "quantity": 1
+        },
+        {
+          "id": "481206",
+          "name": "Saffron Feast Box",
+          "price": 149,
+          "quantity": 1
+        }
+      ],
+      "total": 486,
+      "status": "WhatsApp order initiated"
+    }
+  ]
+}
