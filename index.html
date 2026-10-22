@@ -1,0 +1,313 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#153b32" />
+    <title>Annvitra — Good food, better way</title>
+    <meta name="description" content="Annvitra brings fresh and surplus food from local kitchens to Hazaribagh at up to half the price. Check today's menu and order on WhatsApp." />
+    <link rel="canonical" href="https://annvitra.com/orderhere" />
+    <meta name="robots" content="index, follow" />
+
+    <!-- Open Graph (WhatsApp, Facebook, LinkedIn) -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Annvitra" />
+    <meta property="og:title" content="Annvitra — Good food, better way" />
+    <meta property="og:description" content="Fresh and surplus food from local kitchens, delivered in Hazaribagh. Order in a minute on WhatsApp." />
+    <meta property="og:url" content="https://annvitra.com/orderhere" />
+    <meta property="og:image" content="https://annvitra.com/logo.png" />
+    <meta property="og:image:alt" content="Annvitra logo" />
+    <meta property="og:locale" content="en_IN" />
+    
+    <!-- Twitter / X -->
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Annvitra — Good food, better way" />
+    <meta name="twitter:description" content="Fresh and surplus food from local kitchens, delivered in Hazaribagh." />
+    <meta name="twitter:image" content="https://annvitra.com/logo.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&family=Playfair+Display:ital,wght@500;600;700&display=swap" rel="stylesheet" />
+    <link rel="icon" type="image/png" href="logo.png" />
+    <link rel="stylesheet" href="styles.css?v=7" />
+  </head>
+  <body>
+    <!-- Refresh / Page-Load Reveal Graphic -->
+    <div class="intro-curtain" id="introCurtain" aria-hidden="true">
+      <div class="intro-backdrop"></div>
+      <div class="intro-content">
+        <div class="intro-emblem-wrap">
+          <span class="intro-ring ring-1"></span>
+          <span class="intro-ring ring-2"></span>
+          <img class="intro-logo" src="logo.png" alt="Annvitra" />
+        </div>
+        <div class="intro-text-wrap">
+          <h2 class="intro-title">Annvitra</h2>
+          <p class="intro-subtitle">Good food finds a good home</p>
+        </div>
+        <div class="intro-loader-line">
+          <div class="intro-progress"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="ambient ambient-one"></div>
+    <div class="ambient ambient-two"></div>
+
+    <header class="site-header">
+      <a class="brand" href="#top" aria-label="Annvitra home">
+        <img class="brand-logo" src="logo.png" alt="Annvitra logo" />
+        <span>Annvitra</span>
+      </a>
+      <nav class="main-nav" aria-label="Primary navigation">
+        <a href="#menu">Today’s menu</a>
+        <a href="#impact">Our impact</a>
+      </nav>
+      <button class="cart-button" id="cartOpen" type="button" aria-label="Open cart">
+        <span>Cart</span><b id="cartCount">0</b>
+      </button>
+    </header>
+
+    <main id="top">
+      <section class="hero section-shell">
+        <div class="hero-copy">
+          <p class="eyebrow"><i></i> DELIVERING BETTER FOOD DAYS</p>
+          <h1>More <em>good food.</em><br />Less going to waste.</h1>
+          <p class="hero-text">We connect surplus and freshly prepared meals with the people who’ll enjoy them most — at prices that feel good in every sense.</p>
+          <div class="hero-actions">
+            <a href="#menu" class="button button-lime">Explore today’s food <span>↓</span></a>
+            <a href="#impact" class="text-link">How Annvitra works <span>↗</span></a>
+          </div>
+          <div class="hero-proof">
+            <div class="avatar-stack" aria-hidden="true"><span>A</span><span>R</span><span>K</span><span>S</span></div>
+            <p><strong>2,400+ neighbours</strong><br />already eating better</p>
+          </div>
+        </div>
+
+        <div class="hero-visual" aria-label="A vibrant bowl of fresh food">
+          <div class="orbital orbit-one"></div>
+          <div class="orbital orbit-two"></div>
+          <div class="mini-sticker sticker-one">SAVE<br /><b>GOOD</b><br />FOOD</div>
+          <div class="mini-sticker sticker-two"><span>✦</span> TODAY’S<br />FIND</div>
+          <div class="visual-label label-left"><i></i> FRESHLY MADE</div>
+          <figure class="floating-plate insta-carousel" id="instaCarousel" aria-label="Featured food dishes carousel">
+            <div class="insta-track" id="instaTrack">
+              <!-- Slide 1 -->
+              <div class="insta-slide">
+                <img src="https://images.unsplash.com/photo-1601050690597-df0568f70950?auto=format&fit=crop&w=1200&q=90" alt="Crisp Golden Samosas" />
+                <div class="insta-caption">
+                  <h4>Crisp Golden Samosas</h4>
+                  <p>The Royal Table · ₹99</p>
+                </div>
+              </div>
+              <!-- Slide 2 -->
+              <div class="insta-slide">
+                <img src="https://images.unsplash.com/photo-1606491956689-2ea866880c84?auto=format&fit=crop&w=1200&q=90" alt="Royal Dum Biryani" />
+                <div class="insta-caption">
+                  <h4>Royal Dum Biryani</h4>
+                  <p>Nawab's Kitchen · ₹179</p>
+                </div>
+              </div>
+              <!-- Slide 3 -->
+              <div class="insta-slide">
+                <img src="https://images.unsplash.com/photo-1567188040759-fb8a883dc6d8?auto=format&fit=crop&w=1200&q=90" alt="Tandoori Paneer Tikka" />
+                <div class="insta-caption">
+                  <h4>Tandoori Paneer Tikka</h4>
+                  <p>Tandoor Junction · ₹109</p>
+                </div>
+              </div>
+              <!-- Slide 4 -->
+              <div class="insta-slide">
+                <img src="https://images.unsplash.com/photo-1631515243349-e0cb75fb8d4a?auto=format&fit=crop&w=1200&q=90" alt="Delhi Butter Chicken" />
+                <div class="insta-caption">
+                  <h4>Delhi Butter Chicken</h4>
+                  <p>The Royal Table · ₹149</p>
+                </div>
+              </div>
+              <!-- Slide 5 -->
+              <div class="insta-slide">
+                <img src="https://images.unsplash.com/photo-1585937421612-70a008356fbe?auto=format&fit=crop&w=1200&q=90" alt="Street-Style Thali" />
+                <div class="insta-caption">
+                  <h4>Street-Style Thali</h4>
+                  <p>Chowk Express · ₹99</p>
+                </div>
+              </div>
+              <!-- Slide 6 -->
+              <div class="insta-slide">
+                <img src="https://images.unsplash.com/photo-1574484284002-952d92456975?auto=format&fit=crop&w=1200&q=90" alt="Amritsari Chole Bhature" />
+                <div class="insta-caption">
+                  <h4>Amritsari Chole Bhature</h4>
+                  <p>Street Cart Co. · ₹79</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Instagram-style top counter pill -->
+            <div class="insta-counter" id="instaCounter">1/6</div>
+
+            <!-- Instagram-style dots indicator -->
+            <div class="insta-dots" id="instaDots" aria-label="Slide indicators">
+              <span class="insta-dot active" data-index="0" role="button" aria-label="Slide 1"></span>
+              <span class="insta-dot" data-index="1" role="button" aria-label="Slide 2"></span>
+              <span class="insta-dot" data-index="2" role="button" aria-label="Slide 3"></span>
+              <span class="insta-dot" data-index="3" role="button" aria-label="Slide 4"></span>
+              <span class="insta-dot" data-index="4" role="button" aria-label="Slide 5"></span>
+              <span class="insta-dot" data-index="5" role="button" aria-label="Slide 6"></span>
+            </div>
+
+            <!-- Subtle Instagram-style navigation buttons -->
+            <button class="insta-nav insta-prev" id="instaPrev" type="button" aria-label="Previous slide">‹</button>
+            <button class="insta-nav insta-next" id="instaNext" type="button" aria-label="Next slide">›</button>
+          </figure>
+          <div class="price-orb"><small>FROM</small><strong>₹99</strong><span>today</span></div>
+          <div class="swirl-word">share&nbsp; • &nbsp;savour&nbsp; • &nbsp;support&nbsp; • </div>
+        </div>
+      </section>
+
+      <section class="ticker" aria-label="Annvitra values">
+        <div class="ticker-track"><span>Less waste</span><b>✦</b><span>More flavour</span><b>✦</b><span>Real impact</span><b>✦</b><span>Better prices</span><b>✦</b><span>Less waste</span><b>✦</b><span>More flavour</span><b>✦</b><span>Real impact</span><b>✦</b><span>Better prices</span><b>✦</b></div>
+      </section>
+
+      <section class="menu-section section-shell" id="menu">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow"><i></i> EAT WELL. SPEND WISELY.</p>
+            <h2>Your finds for <em>today.</em></h2>
+          </div>
+          <p class="disclaimer">Items shown here are subject to availability.</p>
+        </div>
+        <div class="meal-grid" id="mealGrid" aria-live="polite">
+          <div class="loading-card">Finding today’s good food…</div>
+        </div>
+        <div class="explore-more-wrap">
+          <a class="button button-lime explore-more-button" href="https://wa.me/916205569006?text=Which%20other%20dishes%20are%20available%3F" target="_blank" rel="noopener noreferrer">
+            Explore More <span>↗</span>
+          </a>
+        </div>
+        <div class="menu-bottom"><span class="pulse-dot"></span> Live menu, refreshed daily <button id="refreshMenu" type="button">Refresh availability ↻</button></div>
+      </section>
+
+      <section class="impact-section" id="impact">
+        <div class="impact-content section-shell">
+          <div class="impact-visual">
+            <div class="impact-tile tile-green"><span>01</span><b>Restaurants<br />&amp; events</b></div>
+            <div class="impact-tile tile-lime"><span>02</span><b>You choose<br />a great meal</b></div>
+            <div class="impact-tile tile-peach"><span>03</span><b>Every order<br />makes impact</b></div>
+            <div class="route route-one"></div><div class="route route-two"></div>
+          </div>
+          <div class="impact-copy">
+            <p class="eyebrow"><i></i> FOOD WITH A SECOND CHANCE</p>
+            <h2>Great meals<br />create a <em>greater good.</em></h2>
+            <p>When perfectly good meals have more to give, we help move them to people, animals and communities that need them. Every plate keeps the good going.</p>
+            <div class="impact-stat"><strong>1 meal ordered</strong><span>= a smarter food system</span></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="closing section-shell">
+        <div><p class="eyebrow"><i></i> ONE SMALL CHOICE. REAL RIPPLE.</p><h2>Eat like every<br />bite <em>matters.</em></h2></div>
+        <a href="#menu" class="round-cta" aria-label="Browse today’s menu">Browse<br />the menu <span>→</span></a>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="footer-main section-shell">
+        <!-- Col 1: Brand & Bio -->
+        <div class="footer-col footer-brand-col">
+          <a class="footer-brand" href="#top">
+            <img class="brand-logo" src="logo.png" alt="Annvitra logo" />
+            <span>Annvitra</span>
+          </a>
+          <p class="footer-tagline">Turning Surplus Into Smiles</p>
+          <p class="footer-bio">A food-tech platform making meals more accessible through smarter distribution and community-driven impact.</p>
+          <div class="footer-socials">
+            <a href="https://wa.me/916205569006" target="_blank" rel="noopener" aria-label="WhatsApp" class="social-icon">
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2zm.01 1.67c2.2 0 4.26.86 5.82 2.41a8.17 8.17 0 0 1 2.41 5.83c0 4.54-3.7 8.24-8.24 8.24-1.42 0-2.82-.37-4.06-1.08l-.29-.17-3.12.82.83-3.04-.19-.3a8.17 8.17 0 0 1-1.26-4.46c0-4.54 3.7-8.24 8.24-8.24z"/></svg>
+            </a>
+            <a href="#" aria-label="LinkedIn" class="social-icon">
+              <svg viewBox="0 0 24 24" width="15" height="15" fill="currentColor"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg>
+            </a>
+            <a href="#" aria-label="X (Twitter)" class="social-icon">
+              <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+            </a>
+            <a href="#" aria-label="Instagram" class="social-icon">
+              <svg viewBox="0 0 24 24" width="15" height="15" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Col 2: Platform -->
+        <div class="footer-col">
+          <h4 class="footer-heading">Platform</h4>
+          <ul class="footer-links">
+            <li><a href="#menu">What We Do</a></li>
+            <li><a href="#impact">How It Works</a></li>
+            <li><a href="#top">App Preview</a></li>
+            <li><a href="#impact">Impact</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 3: Company -->
+        <div class="footer-col">
+          <h4 class="footer-heading">Company</h4>
+          <ul class="footer-links">
+            <li><a href="#impact">Team</a></li>
+            <li><a href="#">Careers</a></li>
+            <li><a href="#">FAQs</a></li>
+            <li><a href="https://wa.me/916205569006" target="_blank" rel="noopener">Contact</a></li>
+            <li><a href="#menu">Visit Store</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 4: Stay Updated -->
+        <div class="footer-col footer-newsletter-col">
+          <h4 class="footer-heading">Stay Updated</h4>
+          <p class="footer-subtext">Get launch updates and platform news before anyone else.</p>
+          <form class="footer-newsletter-form" id="newsletterForm">
+            <input type="email" required placeholder="Enter your email" aria-label="Enter your email" name="email" />
+            <button type="submit" aria-label="Subscribe">→</button>
+          </form>
+          <p class="footer-disclaimer">No spam. Unsubscribe anytime.</p>
+        </div>
+      </div>
+
+      <!-- Bottom Bar -->
+      <div class="footer-bottom-wrap">
+        <div class="footer-bottom section-shell">
+          <p class="footer-copy">© <span id="year">2026</span> Annvitra. All rights reserved.</p>
+          <p class="footer-motto">Building a smarter, more accessible food ecosystem.</p>
+          <div class="footer-legal">
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms of Service</a>
+            <a href="#">Cookie Policy</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <aside class="panel cart-panel" id="cartPanel" aria-hidden="true" aria-labelledby="cartTitle">
+      <div class="panel-head"><div><p class="eyebrow"><i></i> YOUR PICKS</p><h3 id="cartTitle">Your cart</h3></div><button class="icon-close" data-close="cartPanel" aria-label="Close cart">×</button></div>
+      <div class="cart-items" id="cartItems"></div>
+      <div class="cart-footer">
+        <div class="cart-total"><span>Estimated total</span><strong id="cartTotal">₹0</strong></div>
+        <button class="button button-dark" id="checkoutOpen" type="button">Order on WhatsApp <span>↗</span></button>
+        <p>We’ll confirm your order via WhatsApp.</p>
+      </div>
+    </aside>
+
+    <aside class="panel checkout-panel" id="checkoutPanel" aria-hidden="true" aria-labelledby="checkoutTitle">
+      <div class="panel-head"><div><p class="eyebrow"><i></i> ALMOST THERE</p><h3 id="checkoutTitle">Where should we send it?</h3></div><button class="icon-close" data-close="checkoutPanel" aria-label="Close checkout">×</button></div>
+      <form id="checkoutForm" class="checkout-form">
+        <label>Full name<input required name="name" autocomplete="name" placeholder="Your name" /></label>
+        <label>Phone number<input required name="phone" autocomplete="tel" inputmode="tel" placeholder="+91 98XXX XXXXX" /></label>
+        <label>Delivery address<textarea required name="address" autocomplete="street-address" rows="3" placeholder="House / flat, street, area, city"></textarea></label>
+        <fieldset><legend>Payment method</legend><label class="radio-label"><input checked type="radio" name="paymentMethod" value="Cash on Delivery" /><span>Cash on Delivery</span><b>Pay when it arrives</b></label><label class="radio-label"><input type="radio" name="paymentMethod" value="UPI" /><span>UPI</span><b>Pay via WhatsApp</b></label></fieldset>
+        <button class="button button-lime" type="submit">Continue to WhatsApp <span>↗</span></button>
+        <p class="form-note">This saves your order for Annvitra, then opens WhatsApp to send your pre-filled order message.</p>
+      </form>
+    </aside>
+
+    <div class="scrim" id="scrim"></div>
+    <div class="toast" id="toast" role="status"></div>
+    <script src="app.js?v=4"></script>
+  </body>
+</html>
