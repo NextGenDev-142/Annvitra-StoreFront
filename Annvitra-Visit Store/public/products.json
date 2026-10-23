@@ -1,0 +1,48 @@
+{
+  "products": [
+    {
+      "id": "481206",
+      "name": "Saffron Feast Box",
+      "kitchen": "The Royal Table",
+      "type": "Banquet surplus",
+      "price": 149,
+      "originalPrice": 349,
+      "available": true,
+      "image": "https://images.unsplash.com/photo-1601050690597-df0568f70950?auto=format&fit=crop&w=900&q=85",
+      "badge": "Best value"
+    },
+    {
+      "id": "728194",
+      "name": "Smoky Paneer Bowl",
+      "kitchen": "Tandoor Junction",
+      "type": "Fresh today",
+      "price": 109,
+      "originalPrice": 239,
+      "available": true,
+      "image": "https://images.unsplash.com/photo-1567188040759-fb8a883dc6d8?auto=format&fit=crop&w=900&q=85",
+      "badge": "Chef pick"
+    },
+    {
+      "id": "593017",
+      "name": "Garden Pasta Meal",
+      "kitchen": "Basil & Bloom",
+      "type": "Cloud kitchen",
+      "price": 129,
+      "originalPrice": 279,
+      "available": true,
+      "image": "https://images.unsplash.com/photo-1621996346565-e3dbc646d9a9?auto=format&fit=crop&w=900&q=85",
+      "badge": "Fresh batch"
+    },
+    {
+      "id": "864321",
+      "name": "Street-Style Thali",
+      "kitchen": "Chowk Express",
+      "type": "Vetted local vendor",
+      "price": 99,
+      "originalPrice": 199,
+      "available": true,
+      "image": "https://images.unsplash.com/photo-1585937421612-70a008356fbe?auto=format&fit=crop&w=900&q=85",
+      "badge": "Local favourite"
+    }
+  ]
+}

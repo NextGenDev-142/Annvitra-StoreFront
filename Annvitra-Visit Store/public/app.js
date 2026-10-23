@@ -1,6 +1,25 @@
+const MAX_CART_QUANTITY = 20;
+
+function loadSavedCart() {
+  try {
+    const savedItems = JSON.parse(localStorage.getItem('annvitra-cart') || '[]');
+    if (!Array.isArray(savedItems)) return [];
+    const quantities = new Map();
+    savedItems.forEach(item => {
+      const id = String(item?.id || '');
+      const quantity = Number(item?.quantity);
+      if (!id || !Number.isInteger(quantity) || quantity < 1) return;
+      quantities.set(id, Math.min((quantities.get(id) || 0) + quantity, MAX_CART_QUANTITY));
+    });
+    return Array.from(quantities, ([id, quantity]) => ({ id, quantity }));
+  } catch {
+    return [];
+  }
+}
+
 const state = {
   products: [],
-  cart: JSON.parse(localStorage.getItem('annvitra-cart') || '[]')
+  cart: loadSavedCart()
 };
 
 const $ = (selector) => document.querySelector(selector);
@@ -90,17 +109,17 @@ function closePanels() {
   scrim.classList.remove('open');
 }
 
-async function loadProducts(showToast = false) {
+async function loadProducts() {
   try {
-    const response = await fetch('/api/products');
+    const response = await fetch('products.json');
     if (!response.ok) throw new Error('Unable to load today’s menu.');
     const data = await response.json();
+    if (!Array.isArray(data.products)) throw new Error('Today’s menu is unavailable right now.');
     state.products = data.products;
     renderMenu();
     renderCart();
-    if (showToast) toast('Today’s availability is up to date.');
-  } catch (error) {
-    mealGrid.innerHTML = `<div class="loading-card">${safe(error.message)}</div>`;
+  } catch {
+    mealGrid.innerHTML = '<div class="loading-card" role="status">Today’s menu is unavailable right now. Please refresh the page to try again.</div>';
   }
 }
 
@@ -108,7 +127,8 @@ function addToCart(id) {
   const product = currentProduct(id);
   if (!product || !product.available) return toast('This item is not available right now.');
   const existing = state.cart.find(item => item.id === id);
-  if (existing) existing.quantity = Math.min(existing.quantity + 1, 20);
+  if (existing && existing.quantity >= MAX_CART_QUANTITY) return toast(`You can add up to ${MAX_CART_QUANTITY} of each item.`);
+  if (existing) existing.quantity = Math.min(existing.quantity + 1, MAX_CART_QUANTITY);
   else state.cart.push({ id, quantity: 1 });
   saveCart();
   renderCart();
@@ -118,10 +138,33 @@ function addToCart(id) {
 function updateCart(id, delta) {
   const item = state.cart.find(item => item.id === id);
   if (!item) return;
-  item.quantity += Number(delta);
-  if (item.quantity <= 0) state.cart = state.cart.filter(item => item.id !== id);
+  const change = Number(delta);
+  if (change !== -1 && change !== 1) return;
+  if (change === 1 && Number(item.quantity) >= MAX_CART_QUANTITY) return toast(`You can add up to ${MAX_CART_QUANTITY} of each item.`);
+  const nextQuantity = Math.min(Number(item.quantity) + change, MAX_CART_QUANTITY);
+  if (nextQuantity <= 0) state.cart = state.cart.filter(cartItem => cartItem.id !== id);
+  else item.quantity = nextQuantity;
   saveCart();
   renderCart();
+}
+
+function createLocalOrder(details) {
+  const token = window.crypto?.randomUUID?.() || `${Date.now().toString(36)}-${Math.random().toString(36).slice(2, 10)}`;
+  const items = state.cart.map(item => {
+    const product = currentProduct(item.id);
+    return product ? { id: product.id, name: product.name, price: product.price, quantity: item.quantity } : null;
+  }).filter(Boolean);
+  return {
+    id: `ANV-LOCAL-${token}`,
+    customer: {
+      name: String(details.get('name')).trim(),
+      phone: String(details.get('phone')).trim(),
+      address: String(details.get('address')).trim()
+    },
+    paymentMethod: details.get('paymentMethod'),
+    items,
+    total: items.reduce((sum, item) => sum + item.price * item.quantity, 0)
+  };
 }
 
 async function submitOrder(event) {
@@ -130,6 +173,8 @@ async function submitOrder(event) {
   const formElement = $('#checkoutForm');
   const button = formElement ? formElement.querySelector('button[type="submit"]') : null;
   const details = new FormData(formElement || event.currentTarget);
+  let order;
+  let saved = false;
   if (button) {
     button.disabled = true;
     button.textContent = 'Saving your order…';
@@ -142,36 +187,50 @@ async function submitOrder(event) {
         name: details.get('name'), phone: details.get('phone'), address: details.get('address'), paymentMethod: details.get('paymentMethod'), items: state.cart
       })
     });
-    const data = await response.json();
-    if (!response.ok) throw new Error(data.error || 'Unable to save your order.');
-    const { order } = data;
-    const lines = [
-      'Hello Annvitra! I would like to place an order.',
-      '',
-      `Order: ${order.id}`,
-      'Items:',
-      ...order.items.map(item => `• ${item.name} — ID ${item.id} × ${item.quantity} — ₹${item.price * item.quantity}`),
-      '',
-      `Total: ₹${order.total}`,
-      `Payment: ${order.paymentMethod}`,
-      '',
-      `Name: ${order.customer.name}`,
-      `Address: ${order.customer.address}`,
-      `Phone: ${order.customer.phone}`
-    ];
-    state.cart = [];
-    saveCart();
-    renderCart();
-    if (formElement) formElement.reset();
-    closePanels();
-    window.location.assign(`https://wa.me/916205569006?text=${encodeURIComponent(lines.join('\n'))}`);
+    const data = await response.json().catch(() => ({}));
+    if (response.ok && data.order) {
+      order = data.order;
+      saved = true;
+    } else if (response.status === 404 || response.status === 405 || response.status >= 500 || response.ok) {
+      order = createLocalOrder(details);
+    } else {
+      throw new Error(data.error || 'Unable to save your order.');
+    }
   } catch (error) {
-    toast(error.message);
-    if (button) {
-      button.disabled = false;
-      button.innerHTML = 'Continue to WhatsApp <span>↗</span>';
+    if (error instanceof TypeError) {
+      order = createLocalOrder(details);
+    }
+    else {
+      toast(error.message);
+      if (button) {
+        button.disabled = false;
+        button.innerHTML = 'Continue to WhatsApp <span>↗</span>';
+      }
+      return;
     }
   }
+
+  const lines = [
+    'Hello Annvitra! I would like to place an order.',
+    ...(saved ? [] : ['This storefront could not save the order. Please confirm it in this WhatsApp chat.']),
+    '',
+    `Order: ${order.id}`,
+    'Items:',
+    ...order.items.map(item => `• ${item.name} — ID ${item.id} × ${item.quantity} — ₹${item.price * item.quantity}`),
+    '',
+    `Total: ₹${order.total}`,
+    `Payment: ${order.paymentMethod}`,
+    '',
+    `Name: ${order.customer.name}`,
+    `Address: ${order.customer.address}`,
+    `Phone: ${order.customer.phone}`
+  ];
+  state.cart = [];
+  saveCart();
+  renderCart();
+  if (formElement) formElement.reset();
+  closePanels();
+  window.location.assign(`https://wa.me/916205569006?text=${encodeURIComponent(lines.join('\n'))}`);
 }
 
 document.addEventListener('click', event => {
@@ -188,7 +247,6 @@ $('#checkoutOpen').addEventListener('click', () => {
   if (!state.cart.length) return;
   openPanel(checkoutPanel);
 });
-$('#refreshMenu').addEventListener('click', () => loadProducts(true));
 $('#checkoutForm').addEventListener('submit', submitOrder);
 scrim.addEventListener('click', closePanels);
 document.addEventListener('keydown', event => { if (event.key === 'Escape') closePanels(); });
@@ -213,118 +271,5 @@ function initIntroCurtain() {
   window.setTimeout(dismiss, 1200);
 }
 
-const yearEl = $('#year');
-if (yearEl) yearEl.textContent = new Date().getFullYear();
-const newsletterForm = $('#newsletterForm');
-if (newsletterForm) {
-  newsletterForm.addEventListener('submit', event => {
-    event.preventDefault();
-    newsletterForm.reset();
-    toast('Thank you for subscribing to Annvitra updates!');
-  });
-}
-
-function initHeroInstaCarousel() {
-  const track = document.getElementById('instaTrack');
-  if (!track) return;
-  const slides = track.querySelectorAll('.insta-slide');
-  const dots = document.querySelectorAll('.insta-dot');
-  const counter = document.getElementById('instaCounter');
-  const prevBtn = document.getElementById('instaPrev');
-  const nextBtn = document.getElementById('instaNext');
-  const total = slides.length;
-  if (!total) return;
-
-  let currentIndex = 0;
-  let autoTimer = null;
-  const INTERVAL = 3200; // 3.2 seconds per slide
-
-  function updateSlide(index) {
-    currentIndex = (index + total) % total;
-    track.style.transform = `translateX(-${currentIndex * 100}%)`;
-
-    dots.forEach((dot, i) => {
-      dot.classList.toggle('active', i === currentIndex);
-    });
-
-    if (counter) {
-      counter.textContent = `${currentIndex + 1}/${total}`;
-    }
-  }
-
-  function nextSlide() {
-    updateSlide(currentIndex + 1);
-  }
-
-  function prevSlide() {
-    updateSlide(currentIndex - 1);
-  }
-
-  function startAuto() {
-    stopAuto();
-    autoTimer = setInterval(nextSlide, INTERVAL);
-  }
-
-  function stopAuto() {
-    if (autoTimer) {
-      clearInterval(autoTimer);
-      autoTimer = null;
-    }
-  }
-
-  if (nextBtn) {
-    nextBtn.addEventListener('click', (e) => {
-      e.stopPropagation();
-      nextSlide();
-      startAuto();
-    });
-  }
-
-  if (prevBtn) {
-    prevBtn.addEventListener('click', (e) => {
-      e.stopPropagation();
-      prevSlide();
-      startAuto();
-    });
-  }
-
-  dots.forEach(dot => {
-    dot.addEventListener('click', (e) => {
-      e.stopPropagation();
-      const idx = parseInt(dot.getAttribute('data-index'), 10);
-      if (!isNaN(idx)) {
-        updateSlide(idx);
-        startAuto();
-      }
-    });
-  });
-
-  const carousel = document.getElementById('instaCarousel');
-  if (carousel) {
-    carousel.addEventListener('mouseenter', stopAuto);
-    carousel.addEventListener('mouseleave', startAuto);
-
-    // Mobile swipe support
-    let startX = 0;
-    carousel.addEventListener('touchstart', (e) => {
-      startX = e.touches[0].clientX;
-      stopAuto();
-    }, { passive: true });
-
-    carousel.addEventListener('touchend', (e) => {
-      const endX = e.changedTouches[0].clientX;
-      const diff = startX - endX;
-      if (Math.abs(diff) > 40) {
-        if (diff > 0) nextSlide(); // swipe left -> next slide
-        else prevSlide();          // swipe right -> prev slide
-      }
-      startAuto();
-    }, { passive: true });
-  }
-
-  startAuto();
-}
-
 initIntroCurtain();
-initHeroInstaCarousel();
 loadProducts();
