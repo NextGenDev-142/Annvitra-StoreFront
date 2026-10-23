@@ -6,56 +6,9 @@ const PORT = Number(process.env.PORT) || 3000;
 const STORE_DIR = path.join(__dirname, 'store-data');
 const STORE_PATH = path.join(STORE_DIR, 'store.json');
 const PUBLIC_DIR = path.join(__dirname, 'public');
+const MAX_ORDER_QUANTITY = 20;
 
-const seed = {
-  products: [
-    {
-      id: '481206',
-      name: 'Saffron Feast Box',
-      kitchen: 'The Royal Table',
-      type: 'Banquet surplus',
-      price: 149,
-      originalPrice: 349,
-      available: true,
-      image: 'https://images.unsplash.com/photo-1601050690597-df0568f70950?auto=format&fit=crop&w=900&q=85',
-      badge: 'Best value'
-    },
-    {
-      id: '728194',
-      name: 'Smoky Paneer Bowl',
-      kitchen: 'Tandoor Junction',
-      type: 'Fresh today',
-      price: 109,
-      originalPrice: 239,
-      available: true,
-      image: 'https://images.unsplash.com/photo-1567188040759-fb8a883dc6d8?auto=format&fit=crop&w=900&q=85',
-      badge: 'Chef pick'
-    },
-    {
-      id: '593017',
-      name: 'Garden Pasta Meal',
-      kitchen: 'Basil & Bloom',
-      type: 'Cloud kitchen',
-      price: 129,
-      originalPrice: 279,
-      available: true,
-      image: 'https://images.unsplash.com/photo-1621996346565-e3dbc646d9a9?auto=format&fit=crop&w=900&q=85',
-      badge: 'Fresh batch'
-    },
-    {
-      id: '864321',
-      name: 'Street-Style Thali',
-      kitchen: 'Chowk Express',
-      type: 'Vetted local vendor',
-      price: 99,
-      originalPrice: 199,
-      available: true,
-      image: 'https://images.unsplash.com/photo-1585937421612-70a008356fbe?auto=format&fit=crop&w=900&q=85',
-      badge: 'Local favourite'
-    }
-  ],
-  orders: []
-};
+const seed = { orders: [] };
 
 function ensureStore() {
   if (!fs.existsSync(STORE_DIR)) fs.mkdirSync(STORE_DIR, { recursive: true });
@@ -67,8 +20,27 @@ function readStore() {
   return JSON.parse(fs.readFileSync(STORE_PATH, 'utf8'));
 }
 
+function readProducts() {
+  return JSON.parse(fs.readFileSync(path.join(PUBLIC_DIR, 'products.json'), 'utf8')).products;
+}
+
 function writeStore(data) {
   fs.writeFileSync(STORE_PATH, JSON.stringify(data, null, 2));
+}
+
+function nextOrderId(orders) {
+  const existingIds = new Set(orders.map(order => String(order.id || '')));
+  let orderNumber = orders.reduce((max, order) => {
+    const match = /^ANV-(\d+)$/i.exec(String(order.id || ''));
+    const number = match ? Number(match[1]) : 0;
+    return Number.isSafeInteger(number) ? Math.max(max, number) : max;
+  }, 0);
+  let id;
+  do {
+    orderNumber += 1;
+    id = `ANV-${String(orderNumber).padStart(7, '0')}`;
+  } while (existingIds.has(id));
+  return id;
 }
 
 function json(res, status, data) {
@@ -102,6 +74,7 @@ function sendStatic(req, res) {
     '.css': 'text/css; charset=utf-8',
     '.js': 'application/javascript; charset=utf-8',
     '.svg': 'image/svg+xml',
+    '.json': 'application/json; charset=utf-8',
     '.png': 'image/png',
     '.jpg': 'image/jpeg',
     '.jpeg': 'image/jpeg',
@@ -119,8 +92,6 @@ const server = http.createServer(async (req, res) => {
   try {
     const { method, url } = req;
 
-    if (method === 'GET' && url === '/api/products') return json(res, 200, { products: readStore().products });
-
     if (method === 'POST' && url === '/api/orders') {
       const { name, phone, address, paymentMethod, items } = await readBody(req);
       if (!String(name || '').trim() || !String(phone || '').trim() || !String(address || '').trim()) {
@@ -129,18 +100,19 @@ const server = http.createServer(async (req, res) => {
       if (!['Cash on Delivery', 'UPI'].includes(paymentMethod)) return json(res, 400, { error: 'Choose a valid payment method.' });
       if (!Array.isArray(items) || items.length === 0) return json(res, 400, { error: 'Your cart is empty.' });
       const data = readStore();
-      const itemMap = new Map(data.products.filter(product => product.available).map(product => [product.id, product]));
+      if (!Array.isArray(data.orders)) data.orders = [];
+      const itemMap = new Map(readProducts().filter(product => product.available).map(product => [product.id, product]));
       const orderedItems = [];
       for (const item of items) {
         const product = itemMap.get(String(item.id));
         const quantity = Number(item.quantity);
-        if (!product || !Number.isInteger(quantity) || quantity < 1 || quantity > 20) {
+        if (!product || !Number.isInteger(quantity) || quantity < 1 || quantity > MAX_ORDER_QUANTITY) {
           return json(res, 400, { error: 'One or more selected items are no longer available. Please refresh your cart.' });
         }
         orderedItems.push({ id: product.id, name: product.name, price: product.price, quantity });
       }
       const order = {
-        id: `ANV-${Date.now().toString().slice(-7)}`,
+        id: nextOrderId(Array.isArray(data.orders) ? data.orders : []),
         placedAt: new Date().toISOString(),
         customer: { name: String(name).trim(), phone: String(phone).trim(), address: String(address).trim() },
         paymentMethod,
