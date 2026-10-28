@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#153b32" />
+    <title>Annvitra — Good food, better way</title>
+    <meta name="description" content="Annvitra brings fresh and surplus food from local kitchens to Hazaribagh at up to half the price. Check today’s menu and order on WhatsApp." />
+    <link rel="canonical" href="https://annvitra.com/orderhere" />
+    <meta name="robots" content="index, follow" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Annvitra" />
+    <meta property="og:title" content="Annvitra — Good food, better way" />
+    <meta property="og:description" content="Fresh and surplus food from local kitchens, delivered in Hazaribagh. Order in a minute on WhatsApp." />
+    <meta property="og:url" content="https://annvitra.com/orderhere" />
+    <meta property="og:image" content="https://annvitra.com/logo.png" />
+    <meta property="og:image:alt" content="Annvitra logo" />
+    <meta property="og:locale" content="en_IN" />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Annvitra — Good food, better way" />
+    <meta name="twitter:description" content="Fresh and surplus food from local kitchens, delivered in Hazaribagh." />
+    <meta name="twitter:image" content="https://annvitra.com/logo.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&family=Playfair+Display:ital,wght@500;600;700&display=swap" rel="stylesheet" />
+    <link rel="icon" type="image/png" href="logo.png" />
+    <link rel="stylesheet" href="styles.css?v=8" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,800&family=Figtree:wght@400;600;700&display=swap" rel="stylesheet">
+
+  </head>
+  <body>
+    <div class="intro-curtain" id="introCurtain" aria-hidden="true">
+      <div class="intro-backdrop"></div>
+      <div class="intro-content">
+        <div class="intro-emblem-wrap">
+          <span class="intro-ring ring-1"></span>
+          <span class="intro-ring ring-2"></span>
+          <img class="intro-logo" src="logo.png" alt="" />
+        </div>
+        <div class="intro-text-wrap">
+          <h2 class="intro-title">Annvitra</h2>
+          <p class="intro-subtitle">Good food finds a good home</p>
+        </div>
+        <div class="intro-loader-line"><div class="intro-progress"></div></div>
+      </div>
+    </div>
+
+    <div class="ambient ambient-one"></div>
+    <div class="ambient ambient-two"></div>
+
+    <main class="storefront" id="top">
+      <section class="menu-section section-shell" id="menu" aria-labelledby="menuTitle">
+        <div class="storefront-topline">
+          <a class="brand" href="#top" aria-label="Annvitra store home">
+            <img class="brand-logo" src="logo.png" alt="" />
+            <span>Annvitra</span>
+          </a>
+          <button class="cart-button" id="cartOpen" type="button" aria-label="Open cart">
+            <span>Cart</span><b id="cartCount">0</b>
+          </button>
+        </div>
+
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow"><i></i> EAT WELL. SPEND WISELY.</p>
+            <h1 id="menuTitle">Your finds for <em>today.</em></h1>
+          </div>
+          <p class="disclaimer">Items shown here are subject to availability.</p>
+        </div>
+
+        <div class="meal-grid" id="mealGrid" aria-live="polite">
+          <div class="loading-card">Finding today’s good food…</div>
+        </div>
+        <div class="explore-more-wrap">
+          <a class="button button-lime explore-more-button" href="https://wa.me/916205569006?text=Which%20other%20dishes%20are%20available%3F" target="_blank" rel="noopener noreferrer">
+            Explore More <span>↗</span>
+          </a>
+        </div>
+      </section>
+
+      <section class="about-link-section section-shell" aria-labelledby="aboutLinkTitle">
+        <div>
+          <p class="eyebrow"><i></i> FOOD WITH A SECOND CHANCE</p>
+          <h2 id="aboutLinkTitle">Wanna know more about us?</h2>
+        </div>
+  
+        <a class="button button-dark about-link-button" href="https://annvitra.com/how-it-works" target="_blank" rel="noopener noreferrer">Go here! <span>↗</span></a>
+      </section>
+    </main>
+
+    <aside class="panel cart-panel" id="cartPanel" aria-hidden="true" aria-labelledby="cartTitle">
+      <div class="panel-head"><div><p class="eyebrow"><i></i> YOUR PICKS</p><h3 id="cartTitle">Your cart</h3></div><button class="icon-close" data-close="cartPanel" aria-label="Close cart">×</button></div>
+      <div class="cart-items" id="cartItems"></div>
+      <div class="cart-footer">
+        <div class="cart-total"><span>Estimated total</span><strong id="cartTotal">₹0</strong></div>
+        <button class="button button-dark" id="checkoutOpen" type="button">Order on WhatsApp <span>↗</span></button>
+        <p>We’ll confirm your order via WhatsApp.</p>
+      </div>
+    </aside>
+
+    <aside class="panel checkout-panel" id="checkoutPanel" aria-hidden="true" aria-labelledby="checkoutTitle">
+      <div class="panel-head"><div><p class="eyebrow"><i></i> ALMOST THERE</p><h3 id="checkoutTitle">Where should we send it?</h3></div><button class="icon-close" data-close="checkoutPanel" aria-label="Close checkout">×</button></div>
+      <form id="checkoutForm" class="checkout-form">
+        <label>Full name<input required name="name" autocomplete="name" placeholder="Your name" /></label>
+        <label>Phone number<input required name="phone" autocomplete="tel" inputmode="tel" placeholder="+91 98XXX XXXXX" /></label>
+        <label>Delivery address<textarea required name="address" autocomplete="street-address" rows="3" placeholder="House / flat, street, area, city"></textarea></label>
+        <fieldset><legend>Payment method</legend><label class="radio-label"><input checked type="radio" name="paymentMethod" value="Cash on Delivery" /><span>Cash on Delivery</span><b>Pay when it arrives</b></label><label class="radio-label"><input type="radio" name="paymentMethod" value="UPI" /><span>UPI</span><b>Pay via WhatsApp</b></label></fieldset>
+        <button class="button button-lime" type="submit">Continue to WhatsApp <span>↗</span></button>
+        <p class="form-note">This saves your order for Annvitra, then opens WhatsApp to send your pre-filled order message.</p>
+      </form>
+    </aside>
+
+    <div class="scrim" id="scrim"></div>
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+    <script src="app.js?v=5"></script>
+
+    
+    <footer class="avn-footer">
+       <div class="avn-wrap avn-grid">
+         <div>
+           <p class="avn-brand">ANNVITRA</p>
+           <p>Turning Surplus into Smiles.</p>
+           <div class="avn-socials">
+             <!-- Instagram -->
+             <a class="avn-ico" href="https://www.instagram.com/weareannvitra" target="_blank" rel="noopener" aria-label="ANNVITRA on Instagram"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><path d="M17.5 6.5h.01"/></svg></a>
+             <!-- Email -->
+             <a class="avn-ico" href="mailto:annvitra.com@gmail.com" aria-label="Email ANNVITRA"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><path d="M22 6l-10 7L2 6"/></svg></a>
+             <!-- LinkedIn: REPLACE the placeholder with the real company page URL -->
+             <a class="avn-ico" href="https://www.linkedin.com/company/annvitra" target="_blank" rel="noopener" aria-label="ANNVITRA on LinkedIn"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
+           </div>
+         </div>
+         <div>
+           <p class="avn-head">Explore</p>
+           <ul>
+             <li><a href="https://annvitra.com/">Home</a></li>
+             <li><a href="https://annvitra.com/story.html">Our story</a></li>
+             <li><a href="https://annvitra.com/how-it-works.html">How it works</a></li>
+             <li><a href="https://annvitra.com/progress.html">Where we are</a></li>
+             <li><a href="https://annvitra.com/team.html">Team</a></li>
+             <li><a href="https://annvitra.com/join.html">Get involved</a></li>
+           </ul>
+         </div>
+         <div>
+           <p class="avn-head">Contact</p>
+           <ul>
+             <li><a href="mailto:annvitra.com@gmail.com">annvitra.com@gmail.com</a></li>
+             <li><a href="tel:+916205569006">+91 62055 69006</a></li>
+             <li><a href="https://www.instagram.com/weareannvitra" target="_blank" rel="noopener">@weareannvitra</a></li>
+           </ul>
+         </div>
+       </div>
+       <div class="avn-wrap"><p class="avn-small">© 2026 ANNVITRA. All rights reserved.</p></div>
+    </footer>
+
+  </body>
+</html>
