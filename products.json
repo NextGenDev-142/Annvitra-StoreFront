@@ -1,0 +1,48 @@
+{
+  "products": [
+    {
+      "id": "481206",
+      "name": "Kadhai Paneer",
+      "kitchen": "The Royal Banquets",
+      "type": "banquet surplus",
+      "price": 149,
+      "originalPrice": 349,
+      "available": true,
+      "image": "https://t4.ftcdn.net/jpg/02/05/36/31/360_F_205363171_ZLNye0D0vISVTKa313d2s6iBscW5ZOAz.jpg",
+      "badge": "Best value"
+    },
+    {
+      "id": "728194",
+      "name": "Chilli Chicken",
+      "kitchen": "Tandoor Junction",
+      "type": "Fresh today",
+      "price": 109,
+      "originalPrice": 239,
+      "available": true,
+      "image": "https://images.slurrp.com/prod/recipe_images/transcribe/side%20dish/Chilli_Chicken.webp",
+      "badge": "Chef pick"
+    },
+    {
+      "id": "593017",
+      "name": "Butter Naan",
+      "kitchen": "Basil & Bloom",
+      "type": "Cloud kitchen",
+      "price": 80,
+      "originalPrice": 100,
+      "available": true,
+      "image": "https://images.unsplash.com/photo-1559561724-4ea348cd867f?q=80&w=1171&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D",
+      "badge": "Fresh batch"
+    },
+    {
+      "id": "864321",
+      "name": "Veg Thali",
+      "kitchen": "Chowk Express",
+      "type": "Vetted local vendor",
+      "price": 99,
+      "originalPrice": 150,
+      "available": true,
+      "image": "https://i.pinimg.com/474x/47/f5/c1/47f5c159f2cd0abe92bf0b956881476d.jpg",
+      "badge": "Local favourite"
+    }
+  ]
+}
