@@ -230,7 +230,7 @@ async function submitOrder(event) {
   renderCart();
   if (formElement) formElement.reset();
   closePanels();
-  window.location.assign(`https://wa.me/916205569006?text=${encodeURIComponent(lines.join('\n'))}`);
+  window.location.assign(`https://wa.me/917903730719?text=${encodeURIComponent(lines.join('\n'))}`);
 }
 
 document.addEventListener('click', event => {
