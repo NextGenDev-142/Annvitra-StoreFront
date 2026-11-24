@@ -1,6 +1,6 @@
 # ANNVITRA STOREFRONT 🌱
-Visit the main website at `https://annvitra.com/` <br>
-Visit the storefront at `https://annvitra.com/annvitra-storefront/annvitra-visit%20store/public/store`
+Visit the main website at [`https://annvitra.com/`](https://annvitra.com/) <br>
+Visit the storefront at [`https://annvitra.com/annvitra-storefront/annvitra-visit%20store/public/store`](https://annvitra.com/annvitra-storefront/annvitra-visit%20store/public/store)
 ## About ANNVITRA
 Turning Surplus into Smiles. 🌱 <br>
 
@@ -29,6 +29,19 @@ We believe that a more sustainable future begins with better choices and smarter
   <img src="https://contrib.rocks/image?repo=NextGenDev-142/Annvitra-StoreFront" />
 </a>
 
+## Contact Annvitra:
+<a href="mailto:annvitra.com@gmail.com">
+<img width="60" height="60" alt="image" src="https://github.com/user-attachments/assets/c3bdfa6e-c2d4-4b04-a7e2-23391f4c81f7" />
+</a>
+
+## Contact Tech Team: 
+<a href="mailto:hropsadmin.annvitra@gmail.com">
+  <img width="80" height="80" alt="image" src="https://github.com/user-attachments/assets/2975265c-9c42-4fcc-a41f-d63747f2d021" />
+</a>
+
+
+
+
 ## Snapshots:
 [<img width="1215" height="626" alt="annvitra com_" src="https://github.com/user-attachments/assets/2809f706-c413-449b-aaae-b58603997cb7" />](https://annvitra.com/)
 [<img width="1219" height="1347" alt="annvitra com_annvitra-storefront_annvitra-visit%20store_public_store" src="https://github.com/user-attachments/assets/373426f4-b541-4876-91df-30d7bbec5f15" />](https://annvitra.com/annvitra-storefront/annvitra-visit%20store/public/store)
@@ -48,12 +61,10 @@ Help us take our initiative forward. Voluntary financial contributions can suppo
 
 #### 💳 Make a Contribution
 
-Scan the UPI QR code below using a compatible UPI app to support ANNVITRA.
-
-<!-- Replace the placeholder below with the path to your official UPI QR code image. -->
+Scan the UPI QR code below using any UPI app to support ANNVITRA.
 
 <p align="center">
-  <img width="622" height="829" alt="cobraminati_qr" src="https://github.com/user-attachments/assets/a95548b5-80e3-4331-9e78-828b38fe2059" />
+  <img width="472" height="630" alt="cobraminati_qr" src="https://github.com/user-attachments/assets/a95548b5-80e3-4331-9e78-828b38fe2059" />
   <br>
   <strong>Every Contribution Counts.</strong>
   <br>
